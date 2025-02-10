@@ -1,0 +1,16 @@
+funct = {
+    "add": 0x0,
+    "addc": 0x1,
+    "sub": 0x2,
+    "subb": 0x3,
+    "abs": 0x4,
+    "and": 0x7,
+    "or": 0x8,
+    "xor": 0x9,
+    "lshift": 0xA,
+    "rshift": 0xB,
+    "rol": 0xC,
+    "ror": 0xD,
+    "alshift": 0xE,
+    "arshift": 0XF,
+}

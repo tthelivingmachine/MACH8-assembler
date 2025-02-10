@@ -4,4 +4,5 @@ mnemonics = {
     "LDI": 0x2,
     "LOAD": 0x3,
     "STORE": 0x4,
+    "ALU": 0x5,
 }

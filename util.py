@@ -1,6 +1,6 @@
 from mnemonics import mnemonics
 from registers import registers
-
+from funct import funct
 
 def assemble_line(line):
     parts = line.strip().split()
@@ -35,16 +35,18 @@ def assemble_line(line):
 
     elif mnemonic == "STORE":
         rd, rs0, rs1 = parts[1], parts[2], parts[3]
-
-        print("rd, rs0, rs1")
-        print(f"{rd}, {rs0}, {rs1}")
-
         imm = int(parts[4], 0) if len(parts) == 5 else 0x00  # Ensure 8-bit immediate
         if rd not in registers or rs0 not in registers or rs1 not in registers:
             raise ValueError(f"Invalid registers: {rd}, {rs0}, {rs1}")
-        print(f"{imm:02X}")
         return (imm << 16) | (registers[rs1] << 12) | (registers[rs0] << 8) | (registers[rd] << 4) | opcode
 
+    elif mnemonic == "ALU":
+        func, rd, rs0, rs1 = parts[1], parts[2], parts[3], parts[4]
+        if func not in funct:
+            raise ValueError(f"Invalid ALU op: {func}")
+        if rd not in registers or rs0 not in registers or rs1 not in registers:
+            raise ValueError(f"Invalid registers: {rd}, {rs0}, {rs1}")
+        return (0 << 20) | (funct[func] << 16) | (registers[rs1] << 12) | (registers[rs0] << 8) | (registers[rd] << 4) | opcode
 
 def assemble(code):
     binary = []
