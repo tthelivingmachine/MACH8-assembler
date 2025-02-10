@@ -1,5 +1,5 @@
 registers = {
-    "r0": 0x0,
+    "zero": 0x0,
     "r1": 0x1,
     "r2": 0x2,
     "r3": 0x3,
