@@ -1,0 +1,7 @@
+mnemonics = {
+    "NOP": 0x0,
+    "MOV": 0x1,
+    "LDI": 0x2,
+    "LOAD": 0x3,
+    "STORE": 0x4,
+}
