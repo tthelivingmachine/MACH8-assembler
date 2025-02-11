@@ -1,0 +1,4 @@
+ldi r1 255
+ldi r2 0x80
+ldi r3 0x00
+store r1 r2 r3 0x00
